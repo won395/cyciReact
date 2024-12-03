@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <h1>about</h1>
+        <About />
         <Routes>
-          <Route path={"/"} element={<Home/>}/>
-          <Route path={"/about"} element={<About/>}/>
-          <Route path={"/cal1"} element={<Calc1/>}/>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/about"} element={<About />} />
+          <Route path={"/cal1"} element={<Calc1 />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -20,7 +20,7 @@ function App() {
 }
 
 function About() {
-  return(
+  return (
     <div style={{border: '2px blue solid'}}>
       <Link to="/">Home으로 이동</Link>
     </div>
@@ -30,9 +30,10 @@ function About() {
 function Home() {
   return(
     <div>
-      <h1>Start</h1>
-      <Link to="/about">About으로 이동</Link>
-      <Link to="/cal1">cal1로 이동</Link>
+      <h1>Start Home</h1>
+      <Link to="/about">About으로 이동</Link><br/>
+      <Link to="/cal1">Cal1로 이동하기</Link>
+
     </div>
   )
 }
