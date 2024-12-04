@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import Calc1 from './comp/calc/study01'
 import Inp1 from './comp/inp/input01'
+import Ref1 from './comp/inp/Ref01'
 import Oup1 from './comp/inp/output01'
 import Singup from './comp/login/singup'
 import User from './comp/login/user';
@@ -21,6 +22,7 @@ function App() {
 
           <Route path={"/inp1"} element={<Inp1 />} />
           <Route path={"/oup1"} element={<Oup1 />} />
+          <Route path={"/ref1"} element={<Ref1 />} />
 
           <Route path={"/singup"} element={<Singup />} />
           <Route path={"/user"} element={<User />} />
@@ -50,6 +52,7 @@ function Home() {
       <h2>데이터 옮기기</h2>
       <Link to="/inp1">데이터입력</Link><br/>
       <Link to="/oup1">데이터 출력</Link><br/>
+      <Link to="/ref1">레퍼런스 사용하기</Link><br/>
 
       <h2>로그인</h2>
       <Link to="/singup">회원가입</Link><br/>
