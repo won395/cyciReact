@@ -1,16 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import Calc1 from './comp/calc/study01'
+
 import Inp1 from './comp/inp/input01'
-import Ref1 from './comp/inp/Ref01'
 import Oup1 from './comp/inp/output01'
-import Singup from './comp/login/singup'
-import User from './comp/login/user';
-import Ax1 from './comp/ax/ax01'
+import Ref from './comp/inp/Ref01'
+
 import ProJoin from './comp/pro/Join'
 import ProLogin from './comp/pro/Login'
+import ProItemList from './comp/pro/ItemList'
+
+import Ax1 from './comp/ax/ax01'
 
 function App() {
   return (
@@ -24,13 +25,11 @@ function App() {
 
           <Route path={"/inp1"} element={<Inp1 />} />
           <Route path={"/oup1"} element={<Oup1 />} />
-          <Route path={"/ref1"} element={<Ref1 />} />
+          <Route path={"/ref1"} element={<Ref />} />
 
           <Route path={"/pro1"} element={<ProJoin />} />
           <Route path={"/login"} element={<ProLogin />} />
-
-          <Route path={"/singup"} element={<Singup />} />
-          <Route path={"/user"} element={<User />} />
+          <Route path={"/itemList"} element={<ProItemList />} />
 
           <Route path={"/ax1"} element={<Ax1 />} />
         </Routes>
@@ -54,22 +53,18 @@ function Home() {
       <Link to="/about">About으로 이동</Link><br/>
       <Link to="/cal1">Cal1로 이동하기</Link><br/>
 
-      <h2>데이터 옮기기</h2>
-      <Link to="/inp1">데이터입력</Link><br/>
+      <h4>데이터 옮기기</h4>
+      <Link to="/inp1">데이터 입력</Link><br/>
       <Link to="/oup1">데이터 출력</Link><br/>
-      <Link to="/ref1">레퍼런스 사용하기</Link><br/>
-
-      <h2>로그인</h2>
-      <Link to="/singup">회원가입</Link><br/>
+      <Link to='/ref1'>Ref 사용하기</Link>
 
       <h4>Axios</h4>
-      <Link to="/ax1">Axios 사용</Link><br/>
+      <Link to="/ax1">AXIOS 사용</Link><br/>
 
       <h4>기능</h4>
-      <Link to="/pro1">회원가입 창</Link>
-      <Link to="/login">회원가입 창</Link>
-
-
+      <Link to="/pro1">회원가입 창</Link><br/>
+      <Link to="/login">로그인</Link><br/>
+      <Link to="/itemList">아이템 리스트</Link>
     </div>
   )
 }
