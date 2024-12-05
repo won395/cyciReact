@@ -10,6 +10,7 @@ import Singup from './comp/login/singup'
 import User from './comp/login/user';
 import Ax1 from './comp/ax/ax01'
 import ProJoin from './comp/pro/Join'
+import ProLogin from './comp/pro/Login'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path={"/ref1"} element={<Ref1 />} />
 
           <Route path={"/pro1"} element={<ProJoin />} />
+          <Route path={"/login"} element={<ProLogin />} />
 
           <Route path={"/singup"} element={<Singup />} />
           <Route path={"/user"} element={<User />} />
@@ -63,8 +65,9 @@ function Home() {
       <h4>Axios</h4>
       <Link to="/ax1">Axios 사용</Link><br/>
 
-      <h4>과제</h4>
+      <h4>기능</h4>
       <Link to="/pro1">회원가입 창</Link>
+      <Link to="/login">회원가입 창</Link>
 
 
     </div>
