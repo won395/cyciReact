@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import './App1.css';
 import React, { useState } from "react";
 
 function Singup() {

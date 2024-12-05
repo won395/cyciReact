@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { memberIdCheck, areaList } from '../api/member'
+import { useEffect, useRef, useState } from 'react';
+import { memberIdCheck, areaList, memberRegist } from '../api/member'
 
 function Study() {
 
@@ -11,7 +11,11 @@ function Study() {
   const [birth, setBirth] = useState('');         //생년 월일
   const [area, setArea] = useState('');           //지역
 
+  const  [idChk, setIdk] = useState('');          //중복체크 아이디
+
   const [areas, setAreas] = useState([]);       //지역 리스트
+
+  const idRef = useRef();                       // 아이디 ( 주소, 테그 )
 
   //화면이 처음 출력 되었을 때, list에 어떻게 표현 시킬 것인가?
   
@@ -39,6 +43,11 @@ function Study() {
   function joinAction() {
 
     //유효성 검사!
+    if(아이디.trim().length == 0 || 아이디  !== idChk) {
+      alert('아이디 중복 체크부터 해주세요.');
+      return ;
+    }
+
     //JavaScript 유효성 검사 코드
 
     //값 담는다.
@@ -53,6 +62,14 @@ function Study() {
     }
 
     console.log(obj);
+    memberRegist(obj)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log('err: ', err);
+      console.log(`err:  ${err}`);
+    })
   }
  
   return (
@@ -61,6 +78,7 @@ function Study() {
       <input 
         type='text'
         placeholder='아이디 입력'
+        ref={idRef}
         value={아이디}
         onChange={e=> {
           변경아이디(e.target.value);
@@ -75,8 +93,8 @@ function Study() {
 
           //성공!
           check.then(res => {
-            console.log('===== 성공!!!');
-            console.log(res);
+            setIdk(아이디);
+            idRef.current.disabled = true;
           })
 
           //실패

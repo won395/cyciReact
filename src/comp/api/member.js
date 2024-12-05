@@ -14,7 +14,15 @@ export const memberIdCheck = (obj) => {
         }
     })
 }
-
+/**
+ * 회원가입 
+ * 지역 리스트 불러오기
+ * @returns
+ */
 export const areaList = () => {
     return api.get('/area/list')
+}
+
+export const memberRegist = (obj) => {
+    return api.post('/member/regist', JSON.stringify(obj))
 }
