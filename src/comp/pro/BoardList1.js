@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react';
-import { fetchPosts, deletePost } from '../api/Board';
+import { fetchBoards, deleteBoard } from '../api/Board';
 import { Link } from 'react-router-dom';
 
 export default function BoardList() {
-    const [posts, setPosts] = useState([]);
+    const [boards, setBoards] = useState([]);
     const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
-        loadPosts();
+        loadBoards();
     }, [keyword]);
 
-    const loadPosts = () => {
-        fetchPosts({ keyword }).then(res => {
-            if (res.data.code === 200) {
-                setPosts(res.data.data);
+    const loadBoards = () => {
+        fetchBoards({ keyword }).then(res => {
+            if (res.data.code === '200') {
+                setBoards(res.data.data);
             }
         });
     };
 
-    const handleDelete = (postId) => {
-        deletePost(postId).then(res => {
-            if (res.data.code === 200) {
+    const handleDelete = (boardId) => {
+        deleteBoard(boardId).then(res => {
+            if (res.data.code === '200') {
                 alert('삭제 완료!');
-                loadPosts();
+                loadBoards();
             }
         });
     };
@@ -36,13 +36,13 @@ export default function BoardList() {
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
             />
-            <button onClick={loadPosts}>검색</button>
+            <button onClick={loadBoards}>검색</button><br />
             <Link to="/board/create">글쓰기</Link>
             <ul>
-                {posts.map(post => (
-                    <li key={post.id}>
-                        <Link to={`/board/${post.id}`}>{post.title}</Link>
-                        <button onClick={() => handleDelete(post.id)}>삭제</button>
+                {boards.map(board => (
+                    <li key={board.idx}>
+                        <Link to={`/board/${board.idx}`}>{board.title}</Link>
+                        <input type='button' onClick={() => handleDelete(board.idx)}>삭제</input>
                     </li>
                 ))}
             </ul>
