@@ -9,17 +9,24 @@ export default function BoardArea(props) {
     }
 
     return (
+        <div style={{
+            'display': 'flex',
+            'justifyContent': 'center',
+            'alignItems': 'center'
+        }}>
+
         <div key={index} style={{
             'border': '2px solid gray',
-            'width' : '400px',
+            'width' : '550px',
             'margin': '10px',
-            'padding': '10px',
-            'cursor' : 'pointer'
+            'padding': '20px',
+            'cursor' : 'pointer',
+            'textAlign' : 'center'
         }}>
-            <p>IDX: {board.idx}</p>
+            <p>IDX: {board.boardIdx}</p>
             <p>제목: {board.title}</p>
             <p>내용: {board.content}</p>
-            <p>추천: {board.good}</p>
+            <p>추천: {board.boardGood}</p>
             <a onClick={
                 e => {
                     e.preventDefault();
@@ -28,6 +35,7 @@ export default function BoardArea(props) {
             }>👍 추천 </a><br/>
 
             <a href={`/BoardDetail/${board.idx}`}>상세보기</a><br/>
+        </div>
         </div>
     );
 }

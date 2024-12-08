@@ -29,11 +29,15 @@ export default function Study() {
         })
     }
 
-    // useState가 변화를 감지할 경우, 해당 이벤트가 동작 되도록 정의
-    // 이부분 사용 할때 [무한루프] 조심 하세요
     useEffect(() => {
         startItemList();
     }, [])
+
+    //useState가 변화를 감지할 경우, 해당 event가 동작 되도록 정의
+    //이 부분 사용 할 때, [무한루프] 조심 하세요.
+    useEffect(() => {
+        seachBtn();
+    }, [keyword]);
 
     function categoryNum(num) {
         console.log('num: ', num);
@@ -50,15 +54,15 @@ export default function Study() {
 
     //값 추천 올리기
     function changeItem(idx) {
-
         let obj = new Object();
         obj.itemIdx = idx;
 
-         itemGood(obj); //axios 호출 좋아요 db호출
+         itemGood(obj); //axios 호출 좋아요 db 호출
 
          const copyItems = [...items];
-         copyItems[idx-1] = {...copyItems[idx], good: copyItems[idx].good+1};
+         copyItems[idx-1] = { ...copyItems[idx-1], good: copyItems[idx-1].good+1 };
          setItems(copyItems);
+        
     }
 
     return(
@@ -85,11 +89,13 @@ export default function Study() {
                 onChange={
                     e=>setKeyword(e.target.value)
                 }/>
+                
             <input type="button" value="검색" onClick={seachBtn} />
+            
             {/** 아이템 리스트 */}
             {items.map(
                 (item, index) => (
-                    <ItemArea item={item} index={index} onGoodUp={
+                    <ItemArea key={index} item={item} index={index} onGoodUp={
                         (idx) => {
                             const copy = items.copy;
                             console.log('부모: ', idx);

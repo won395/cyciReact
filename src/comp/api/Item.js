@@ -1,13 +1,13 @@
-import api from '../ax/axiosSetting'
+import api1 from '../ax/axiosSetting'
 
 export const itemList = (param) => {
-    return api.get('/item/all', {
+    return api1.get('/item/all', {
         params: param
     });
 }
 
 export const itemGood = async (obj) => {
-    return api.get('/item/good', {
+    return api1.get('/item/good', {
         params: obj
     });
 }

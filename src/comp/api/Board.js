@@ -23,3 +23,9 @@ export const deleteBoard = (idx) => {
 export const updateGood = (idx) => {
     return api.post('/good', { boardId: idx });
 };
+
+// export const boardGood = async (obj) => {
+//     return api.get('/item/good', {
+//         params: obj
+//     });
+// }

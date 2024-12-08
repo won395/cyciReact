@@ -11,6 +11,11 @@ import ProJoin from './comp/pro/Join'
 import ProLogin from './comp/pro/Login'
 import ProItemList from './comp/pro/ItemList'
 
+import BoardList from './comp/pro/BoardList1'
+import BoardCreate from './comp/pro/BoardCreate'
+import BoardDetail from './comp/pro/BoardDetail'
+import BoardEdit from './comp/pro/BoardEdit'
+
 import Ax1 from './comp/ax/ax01'
 
 function App() {
@@ -30,6 +35,12 @@ function App() {
           <Route path={"/pro1"} element={<ProJoin />} />
           <Route path={"/login"} element={<ProLogin />} />
           <Route path={"/itemList"} element={<ProItemList />} />
+
+          <Route path="/board" element={<BoardList />} />
+          <Route path="/board/create" element={<BoardCreate />} />
+          <Route path="/board/:id" element={<BoardDetail />} />
+          <Route path="/board/edit/:id" element={<BoardEdit />} />
+
 
           <Route path={"/ax1"} element={<Ax1 />} />
         </Routes>
@@ -64,7 +75,9 @@ function Home() {
       <h4>기능</h4>
       <Link to="/pro1">회원가입 창</Link><br/>
       <Link to="/login">로그인</Link><br/>
-      <Link to="/itemList">아이템 리스트</Link>
+      <Link to="/itemList">아이템 리스트</Link><br/>
+
+      <Link to="/board">게시판 리스트</Link><br/>
     </div>
   )
 }
