@@ -38,7 +38,7 @@ function App() {
 
           <Route path="/board" element={<BoardList />} />
           <Route path="/board/create" element={<BoardCreate />} />
-          <Route path="/board/:id" element={<BoardDetail />} />
+          <Route path="/BoardDetail/:idx" element={<BoardDetail />} />
           <Route path="/board/edit/:id" element={<BoardEdit />} />
 
 

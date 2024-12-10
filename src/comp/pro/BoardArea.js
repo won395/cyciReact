@@ -49,7 +49,7 @@ export default function BoardArea(props) {
     const board = props.board;
 
     function goodUp(index) {
-        console.log(index);
+        console.log('추천 요청 idx:', index); // idx 로그 확인
         props.onGoodUp(index);
     }
 
@@ -59,11 +59,11 @@ export default function BoardArea(props) {
                 <Info>IDX: {board.boardIdx}</Info>
                 <Info>제목: {board.title}</Info>
                 <Info>내용: {board.content}</Info>
-                <Info>추천: {board.boardGood}</Info>
+                <Info>추천: {board.goodUp}</Info>
                 <ActionLink
                     onClick={(e) => {
                         e.preventDefault();
-                        goodUp(board.idx);
+                        goodUp(board.boardIdx);
                     }}
                 >
                     👍 추천

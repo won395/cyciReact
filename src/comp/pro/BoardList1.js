@@ -101,18 +101,22 @@ export default function BoardList() {
 
     function good(idx) {
         updateGood(idx).then(res => {
+            console.log('API Response:', res); // 응답 확인
             if (res.data.code === '200') {
                 const updatedBoards = boards.map(board =>
                     board.idx === idx ? { ...board, good: (board.good || 0) + 1 } : board
                 );
                 setBoards(updatedBoards);
             } else {
+                console.error('API Error:', res.data.message); // 서버 메시지 출력
                 alert('추천 처리에 실패했습니다.');
             }
-        }).catch(() => {
+        }).catch(error => {
+            console.error('Network Error:', error); // 네트워크 에러 확인
             alert('추천 요청 중 오류가 발생했습니다.');
         });
     }
+    
 
     return (
         <Container>
