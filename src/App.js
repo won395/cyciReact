@@ -15,6 +15,7 @@ import BoardList from './comp/pro/BoardList1'
 import BoardCreate from './comp/pro/BoardCreate'
 import BoardDetail from './comp/pro/BoardDetail'
 import BoardEdit from './comp/pro/BoardEdit'
+import Red01 from './comp/red/Red01'
 
 import Ax1 from './comp/ax/ax01'
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/board/create" element={<BoardCreate />} />
           <Route path="/BoardDetail/:idx" element={<BoardDetail />} />
           <Route path="/board/edit/:id" element={<BoardEdit />} />
+          <Route path="/red01" element={<Red01 />} />
 
 
           <Route path={"/ax1"} element={<Ax1 />} />
@@ -78,6 +80,7 @@ function Home() {
       <Link to="/itemList">아이템 리스트</Link><br/>
 
       <Link to="/board">게시판 리스트</Link><br/>
+      <Link to="/red01">리듀서 01</Link><br/>
     </div>
   )
 }
